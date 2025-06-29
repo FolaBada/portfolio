@@ -1,246 +1,176 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html{
-    scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* navbar */
-.navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.5);
-    position:sticky;
-    top: 0;
-
-}
-.navbar ul{
-    display: flex;
-    list-style: none;
-    margin: 20px 0;
-}
-.navbar ul li{
-    font-family: century;
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-.navbar ul li a{
-    text-decoration: none;
-    color: white;
-    padding: 8px 25px;
-    transition: all .5s ease;
-}
-.navbar ul li a:hover{
-    background-color: white;
-    color: black;
-    box-shadow: 0 0 10px white; 
+html {
+  scroll-behavior: smooth;
 }
 
-/* home section */
-#home{  
-    display: flex;
+/* --- NAVBAR --- */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar .nav-container {
+  width: 100%;
+  position: relative;
+}
+
+#menu-icon {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+#nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav-links li {
+  font-family: century;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#nav-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 25px;
+  transition: all 0.5s ease;
+}
+
+#nav-links li a:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 10px white;
+}
+
+/* --- MOBILE NAV --- */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-end;
+    padding: 10px 20px;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+
+  #nav-links {
+    display: none;
     flex-direction: column;
-    background-color: rgba(0,0,0,0.5);
-    height: 830px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-} 
-#home::before{
-    content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    background: url('man.jpg') no-repeat center center/cover;
-    height: 900px;
+    top: 100%;
+    left: 0;
     width: 100%;
-    z-index: -1;
-    opacity: .8;
-    
-}
-.main{
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding: 20px 0;
+  }
+
+  #nav-links.active {
     display: flex;
-    flex-direction: column;
-    /* border: 1px solid white; */
-    align-items: center;
-    position: absolute;
-    top: 30%;
-    right: 10%;
-}
-.headings{
-    font-family: century;
-    font-size: 3rem;
-    text-align: center;
-    margin: 40px 0px; 
-}
-.btn{
-    padding: 10px 35px;
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    outline: none;
-    transition: .6s ease;
-}
-.btn:hover{
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
-    font-weight: bold ;
+  }
+
+  #nav-links li {
+    width: 100%;
+    text-align: left;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #nav-links li a {
+    display: block;
+    font-size: 1.2rem;
+  }
 }
 
- /* about section */
- #size{
-    font-size: 20px;
- }
-#about{
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 20px;
-    margin-bottom: 50px;
-}
-#pic{
-    display: flex;
-}
-#pic img{
-    width: 575px;
-    height: 400px;
+/* --- HOME SECTION --- */
+#home {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 830px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
 }
 
-#intro{
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-    padding: 10px;
-}
-#intro h2{
-    font-size: 2rem;
-    margin-bottom: 20px;
-
-}
-
-/* portfolio section */
-#portfolio{
-    display: flex;
-    flex-direction: column;
-    background-color: RGBA(0,0,0,0.9);
-    color: white;
-    align-items: center;
-    padding: 20px;
-}
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    box-sizing: border-box;
-}
-.gallery img{
-    width: 360px;
-    height: 240px;
-}
-#services{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-.row{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-}
-.box {
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 300px; /* Fixed height */
-    border: 1px solid black;
-    margin: 10px;
-    align-items: center;
-    text-align: justify;
-    padding: 10px;
-    border-radius: 15px;
-    background-size: 100% 200%;
-    transition: all .8s;
-    overflow: hidden; /* Prevent content overflow */
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url('man.jpg') no-repeat center center/cover;
+  height: 900px;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
 }
 
-.box h1 {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 10px;
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  right: 10%;
 }
 
-.box p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 8; /* Limit to 8 lines */
-    -webkit-box-orient: vertical;
+.headings {
+  font-family: century;
+  font-size: 3rem;
+  text-align: center;
+  margin: 40px 0px;
 }
 
-
-/* Optional: Add scrollbar style for better UX */
-.box p::-webkit-scrollbar {
-    width: 6px;
-}
-.box p::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 3px;
-}
-
-/* Contact section */
-#contact{
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
-    padding: 20px;
-}
-form{
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    align-items: center;
-    margin: 20px 0px;
-}
-.input{
-    padding: 12px;
-    margin: 15px;
-    width: 30%;
-    border: none;
-    outline: none;
-}
-#msg{
-    width: 20%;
-    padding: 10px;
-    margin: 15px;
-    border: none;
-    outline: none;
-}
-#send{
-    padding: 10px;
-    width: 100px;
-    margin: 40px;
-    border: none;
-    outline: none;
-}
-#send:hover{
-    cursor: pointer;
-    box-shadow: 0 0 10px white;
+.btn {
+  padding: 10px 35px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  outline: none;
+  transition: 0.6s ease;
 }
 
-/* footer */
-footer{
-        font-family: century;
-        font-size: 3rem;
-        text-align: center;
-        margin: 40px 0px; 
+.btn:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+  font-weight: bold;
 }
+
+/* --- ABOUT SECTION --- */
+#size {
+  font-size: 20px;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
 #pic {
   display: flex;
   flex-wrap: wrap;
@@ -259,15 +189,20 @@ footer{
 #intro {
   flex: 1;
   min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  padding: 10px;
 }
 
 #intro h2 {
-  margin-top: 0;
   font-size: 2rem;
+  margin-bottom: 20px;
   color: #333;
 }
 
-#intro p, #intro ul {
+#intro p,
+#intro ul {
   line-height: 1.6;
   color: #555;
 }
@@ -277,12 +212,80 @@ footer{
   list-style-type: disc;
 }
 
-.headings {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-top: 2rem;
+/* --- PORTFOLIO SECTION --- */
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  align-items: center;
+  padding: 20px;
 }
-/* Updated Contact Section (No Form, More Professional) */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery img {
+  width: 360px;
+  height: 240px;
+}
+
+/* --- SERVICES --- */
+#services {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 300px;
+  border: 1px solid black;
+  margin: 10px;
+  align-items: center;
+  text-align: justify;
+  padding: 10px;
+  border-radius: 15px;
+  background-size: 100% 200%;
+  transition: all 0.8s;
+  overflow: hidden;
+}
+
+.box h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.box p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+}
+
+/* scrollbar for box */
+.box p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.box p::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+/* --- CONTACT SECTION --- */
 #contact {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
@@ -323,7 +326,7 @@ footer{
   text-decoration: underline;
 }
 
-/* Optional footer polish */
+/* --- FOOTER --- */
 footer {
   font-family: Century;
   font-size: 1rem;
@@ -333,3 +336,9 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* --- HEADINGS (general reuse) --- */
+.headings {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
